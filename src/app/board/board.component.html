@@ -2,9 +2,14 @@
 
 <button (click)="newGame()">Start New Game</button>
 
-<h2 *ngIf="winner">
-    Player {{winner}} won the game!
+<h2 *ngIf="winner === 'Tie'; else winBlock">
+    {{winner}}!
 </h2>
+<ng-template #winBlock>
+    <h2 *ngIf="winner">
+        Player {{winner}} won the game!
+    </h2>
+</ng-template>
 
 <main>
     <app-square
